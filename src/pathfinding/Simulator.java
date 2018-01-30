@@ -1,13 +1,9 @@
+package pathfinding;
 import java.util.ArrayList;
 
 import Jama.Matrix;
-import pathFinding_AStar.PathFinding;
-import potential_field.Dot_obstacle;
-import potential_field.Goal;
-import potential_field.PF_Core;
-import potential_field.Square_obstacle;
 
-public class Test {
+public class Simulator {
 	private static void MatrixPrint(Matrix A){
 		int m,n;
 		m = A.getRowDimension();
@@ -23,7 +19,7 @@ public class Test {
 		
 	}
 	public static PF_Core pf = new PF_Core();
-	public static double[] Position = {4,0.8};
+	public static double[] Position = {1,0.8};
 	
 	public static double[] Coordinates = {0,0};
 	public static double Angle = Math.PI/2;
@@ -34,15 +30,21 @@ public class Test {
 		//obs2 = ([4.11,8.22],3.17,3.39,0)
 		//obs3 = ([4.11,12.19],1.42,3.89,0)
 		
+		double time0 = System.currentTimeMillis();
+		double time1 = System.currentTimeMillis();
+		
+		
 		ArrayList<Integer> waypointListX = new ArrayList<Integer>();
 		ArrayList<Integer> waypointListY = new ArrayList<Integer>();
 		ArrayList<Integer> waypointDirection = new ArrayList<Integer>();
 		ArrayList<Integer> waypointShortListX = new ArrayList<Integer>();
 		ArrayList<Integer> waypointShortListY = new ArrayList<Integer>();
 		
-		PathFinding PFS = new PathFinding(400,80,400,574,false,30,4);
-		PFS.findPath(waypointListX, waypointListY, waypointDirection, false,waypointShortListX,waypointShortListY);
 		
+		PathFinding PFS = new PathFinding(100,80,400,1060,false,30,4);
+		PFS.findPath(waypointListX, waypointListY, waypointDirection, false,waypointShortListX,waypointShortListY);
+		time0 = System.currentTimeMillis() - time0;
+		time1 = System.currentTimeMillis();
 		double step = 200;
 		
 		int waypoint_count = 0,interval = 0;
@@ -106,10 +108,16 @@ public class Test {
 		System.out.print("\t");
 		System.out.println(Position[1]);
 			if (pf.isReached()){
+				time1 = System.currentTimeMillis() - time1;
 				break;
 			}
 		}
-		
+		/*
+		System.out.print("A* time:");
+		System.out.println(time0);
+		System.out.print("PF + Simulation time");
+		System.out.println(time1);
+		*/
 		
 		
 		

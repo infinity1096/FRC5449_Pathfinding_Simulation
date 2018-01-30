@@ -1,4 +1,4 @@
-package pathFinding_AStar;
+package pathfinding;
 
 import java.util.ArrayList;
 import java.util.Collections;

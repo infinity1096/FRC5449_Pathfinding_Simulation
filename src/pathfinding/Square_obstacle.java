@@ -1,4 +1,4 @@
-package potential_field;
+package pathfinding;
 
 public class Square_obstacle extends Obstacle{
 	
