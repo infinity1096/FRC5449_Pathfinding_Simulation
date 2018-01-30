@@ -40,7 +40,7 @@ public class Test {
 		ArrayList<Integer> waypointShortListX = new ArrayList<Integer>();
 		ArrayList<Integer> waypointShortListY = new ArrayList<Integer>();
 		
-		PathFinding PFS = new PathFinding(400,80,400,1060,false,30);
+		PathFinding PFS = new PathFinding(400,80,400,574,false,30,4);
 		PFS.findPath(waypointListX, waypointListY, waypointDirection, false,waypointShortListX,waypointShortListY);
 		
 		double step = 200;
