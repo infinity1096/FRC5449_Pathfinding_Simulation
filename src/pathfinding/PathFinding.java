@@ -210,10 +210,10 @@ public class PathFinding {
 			for(int j=(x-RobotXRadius>0)?(x-RobotXRadius):0;j<((x+RobotXRadius<MapXLength)?(x+RobotXRadius):MapXLength);j++){ //x
 				if(CourtMap[i][j]==safetyNode_Value){
 					CourtMap[i][j] = clearNode_Value;
-				}else if(CourtMap[i][j]==closeNode_Value){
+				}/*else if(CourtMap[i][j]==closeNode_Value){
 					//config output
 					System.out.println("Something is Going WRONG! - "+x+" "+y);
-				}
+				}*/
 				
 				
 			}
